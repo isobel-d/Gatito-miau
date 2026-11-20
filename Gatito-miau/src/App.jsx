@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router"; 
-const API_URL = 'https://cataas.com/api/cats';
+import {useState, useEffect} from "react"
+import {Routes, Route} from 'react-router'
+const API_URL = 'https://cataas.com/api/cats'
 
-import HomePage from "./pages/home";
+import HomePage from "./pages/Home";
 import GalleryPage from "./pages/Gallery";
 import NotFoundPage from "./pages/NotFound";
 import CatDetailsPage from "./pages/CatDetail";
@@ -10,7 +10,7 @@ import Header from "./components/Header";
 
 
 const App = () => {
-    const [cats, setCats] = useState([]);
+    const [cats, setCats] = useState([])
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [limit, setLimit] = useState(10);
