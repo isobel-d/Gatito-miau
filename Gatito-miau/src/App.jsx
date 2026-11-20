@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router";
-
-
-// API que trae una lista de gatitos en formato JSON
-const API_URL = 'https://cataas.com/api/cats';
-
+import {useState, useEffect} from "react"
+import {Routes, Route} from 'react-router'
+const API_URL = 'https://cataas.com/api/cats'
 
 import HomePage from "./pages/Home";
 import GalleryPage from "./pages/Gallery";
@@ -14,15 +10,13 @@ import Header from "./components/Header";
 
 
 const App = () => {
-    // Los mismos estados que usó el profe
-    const [cats, setCats] = useState([]);
+    const [cats, setCats] = useState([])
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [limit, setLimit] = useState(10);
     const [filter, setFilter] = useState('');
 
 
-    // Al montar la app o cambiar el límite, pedimos los michis
     useEffect(() => {
         setLoading(true);
         fetch(`${API_URL}?limit=${limit}`)
