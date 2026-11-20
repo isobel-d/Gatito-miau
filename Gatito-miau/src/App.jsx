@@ -2,7 +2,7 @@ import {useState, useEffect} from "react"
 import {Routes, Route} from 'react-router'
 const API_URL = 'https://cataas.com/api/cats'
 
-import HomePage from "./pages/Home";
+import HomePage from "./pages/home";
 import GalleryPage from "./pages/Gallery";
 import NotFoundPage from "./pages/NotFound";
 import CatDetailsPage from "./pages/CatDetail";
@@ -36,7 +36,7 @@ const App = () => {
 
 
     return (
-      <BrowserRouter>
+        <>
         <Header />
         <Routes>
           <Route path='/' element={ 
@@ -54,7 +54,7 @@ const App = () => {
           <Route path="/gato/:id" element={<CatDetailsPage />}/>
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
-      </BrowserRouter>
+      </>
     );
 }
 

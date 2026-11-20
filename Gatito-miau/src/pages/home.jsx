@@ -26,7 +26,7 @@ const HomePage = ({ cats, filter, setFilter, limit, setLimit, loading, error }) 
           <select value={limit} onChange={(e) => setLimit(Number(e.target.value))}>
             <option value={5}>5</option>
             <option value={12}>12</option>
-            <option value={24}>24</option>
+            <option value={50}>50</option>
           </select>
         </div>
       </div>
@@ -35,26 +35,6 @@ const HomePage = ({ cats, filter, setFilter, limit, setLimit, loading, error }) 
 
       {/* Reemplazamos el coin-card por cat-card */}
       <div className="grid">
-<<<<<<< HEAD
-        {cats.map((cat, index) => {
-          const catId = cat._id || cat.id || `michi-${index}`;
-
-          return (
-            <div key={catId} className="cat-card">
-              <img
-                src={`https://cataas.com/cat/${catId}`}
-                alt="Michi hermoso"
-                className="cat-image"
-              />
-              <div className="cat-header">
-                {/* Convertimos a texto por si acaso y luego cortamos */}
-                <h3>Michi #{String(catId).slice(0, 4)}</h3>
-              </div>
-              <Link to={`/gato/${catId}`} className="btn-kawaii">Ver detalles 🎀</Link>
-            </div>
-          );
-        })}
-=======
         {cats.map((cat) => (
           <div key={cat.id} className="cat-card">
             <img
@@ -68,7 +48,6 @@ const HomePage = ({ cats, filter, setFilter, limit, setLimit, loading, error }) 
             <Link to={`/gato/${cat.id}`} className="btn-kawaii">Ver detalles 🎀</Link>
           </div>
         ))}
->>>>>>> 2d9f0df872e390bd5879cef58f94cfbb4fd1aa99
       </div>
     </main>
   );
