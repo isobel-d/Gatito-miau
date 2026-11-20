@@ -2,7 +2,6 @@ import { Link } from "react-router";
 
 
 const HomePage = ({ cats, filter, setFilter, limit, setLimit, loading, error }) => {
-  // Manejo de carga y error del profe
   if (loading) return <h2 className="status-message">Cargando michis... 🐾</h2>;
   if (error) return <h2 className="status-message error">Error: {error} 😿</h2>;
 
@@ -33,21 +32,27 @@ const HomePage = ({ cats, filter, setFilter, limit, setLimit, loading, error }) 
       </div>
 
 
+
       {/* Reemplazamos el coin-card por cat-card */}
       <div className="grid">
-        {cats.map((cat) => (
-          <div key={cat._id} className="cat-card">
-            <img
-              src={`https://cataas.com/cat/${cat._id}`}
-              alt="Michi hermoso"
-              className="cat-image"
-            />
-            <div className="cat-header">
-              <h3>Michi #{cat._id.slice(0, 4)}</h3>
+        {cats.map((cat, index) => {
+          const catId = cat._id || cat.id || `michi-${index}`;
+
+          return (
+            <div key={catId} className="cat-card">
+              <img
+                src={`https://cataas.com/cat/${catId}`}
+                alt="Michi hermoso"
+                className="cat-image"
+              />
+              <div className="cat-header">
+                {/* Convertimos a texto por si acaso y luego cortamos */}
+                <h3>Michi #{String(catId).slice(0, 4)}</h3>
+              </div>
+              <Link to={`/gato/${catId}`} className="btn-kawaii">Ver detalles 🎀</Link>
             </div>
-            <Link to={`/gato/${cat._id}`} className="btn-kawaii">Ver detalles 🎀</Link>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </main>
   );
